@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+
+<html lang='en-US'>
+  <head>
+    <title> The Plan </title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+
+  <body>
+
+    <div>
+      <h1> Software Development Plan </h1>
+    </div>
+
+    <div>
+
+      <ol type="i">
+
+        <li> <a href='index.html'> Blog </a> </li>
+        <li> <a href='about.html'> My Fantastic Adventures </a> </li>
+        <li> <a href='techtips+css.html'> Tech Tips - CSS Edition </a> </li>
+        <li> <a href='techtips-css.html'> Tech Tips - Kramer's Way </a> </li>
+        <li> <a href='debugging'> Debugging </a> </li>
+        <li> <a href='418.html'> Teapot </a> </li>
+        <li> <a href='403.html'> Authorized Access Only </a> </li>
+        <li> <a href='plan.html'> The Plan </a> </li>
+
+      </ol>
+    </div>
+
+    <div>
+      <h2> Phase 0: Requirements and Specifications </h2>
+      <h2> Deliver </h2>
+      <ol>
+        <li> Learn HTTP and how it is used by servers </li>
+        <li> Read Documentation to find out how to host our webpage through a server </li>
+        <li> Handle Errors and alternate filepath names </li>
+        <li> The server will take in input from the user in the form of a 'filepath' request </li>
+      </ol>
+    </div>
+
+    <div>
+      <h2> Phase 1: Design </h2>
+      <h2> Deliver </h2>
+      <p> I want a function that handles all of my filetypes no matter the kind.<br>
+      It will take the file the user input and decide what to do with it.<br>
+      If the file is an alternate name then the function will use a 301 request and perform another do_GET request with the correct pathname<br>
+      If the file is recognized it will do a 200 and send the correct headers, etc.<br>
+      An unrecognized path will take the user to the 404 page.<br></p>
+      <p>There will be another function that takes care of sending the correct headers for the type of response (200, 301, etc.)</p>
+    </div>
+
+    <div>
+
+      <h2> Phase 2: Implementation </h2>
+      <h2> Deliver </h2>
+      
+      <p> I ran into various bugs and oddities while learning about servers and writing my code. </p>
+      <p> One was the Broken Pipe Error. It's an odd one but one that I can't do anything about. </p>
+      <p> I had other errors that occurred throughout the project but using netcat really helped me solve them quickly </p>
+
+    </div>
+
+    <div>
+
+      <h2> Phase 3: Testing &amp; Debugging </h2>
+      <h2> Deliver </h2>
+
+      <p> I kept getting a broken pipe error. After doing some research I determined that this was because I was writing
+        the <code> Connection: close </code> header before some of the others. Once I fixed that and implemented the
+      <code> end_headers </code> this error was mostly solved... Except for at random times. This confused me but
+      Professor Falor helped clear my concerns. </p>
+
+      <p> I kept getting a weird error where the server would send the headers two times instead of one and display the
+        second sent headers on my debugging page only. This was solved by putting a <code> return </code> in the function so the code at
+      the bottom didn't get hit (sending the second sendHeaders) </p>
+
+      <p> I also ran into an odd problem in only safari where if I typed a bogus url in <code> http://localhost:8000/fluffy minutia</code>
+      Safari would automagically perform a search for the entire url instead of taking me to the 404 page. I never solved
+      this error. I think it just a quirk of Safari and typing in the above url on other browsers took me to the 404 page.</p>
+
+      <p> I tested all the alternate links and inspected the network tab to make sure my server was sending the correct codes.</p>
+
+    </div>
+
+    <div>
+
+      <h2> Phase 4: Deployment </h2>
+      <h2> Deliver </h2>
+
+      <p> Everything is pushed to gitLab and confirmed with the official websites. </p>
+
+    </div>
+
+    <div>
+
+      <h2> Phase 5: Maintenance </h2>
+      <h2> Deliver </h2>
+
+      <p> I feel like my <code> sendHeaders </code> function could have been written in a more organized way.
+      I also feel like I shouldn't need as many <code> if statement </code> to check for alternate pathnames but I do not know of any other way I could implement this. </p>
+      <p> If a bug is reported in a few months I should be able to find it fairly quickly. The files are small and it should be fairly obvious what is causing the bug if netcat is used. </p>
+      <p> My documentation should make sense. Hopefully it will allow others to see the errors I made and avoid them in the future. </p>
+      <p> This server should keep working for a long time... Unless the world decides to suddenly change HTTP and the headers. Then the whole world would be a mess (more for HTTPS). </p>
+
+    </div>
+
+  </body>
+</html>

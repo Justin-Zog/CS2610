@@ -1,0 +1,91 @@
+h1,
+h2,
+h5 {
+
+  text-align: center;
+  color: black;
+ 
+}
+
+p {
+
+  color: black;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: normal;
+
+}
+
+body {
+
+  margin: 0 auto;
+  background-color: #A0E2BD; 
+
+}
+
+div {
+
+  background-color: #53CBCF;
+  margin: 20px 35px;
+  border: 7px double #0DA3BA;
+  padding: 10px 10px 10px 10px;
+
+}
+
+img {
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 7px solid #0DA3BA;
+  width: 250px;
+
+}
+
+.rosepink {
+
+  color: #F6B3DC;
+
+}
+
+#freespirit {
+
+  color: #F6D55C
+
+}
+
+li:nth-child(odd) {
+
+  background-color: #B0E4EA;
+
+}
+
+#grey-seafoam {
+
+  background-color: #A3C1AD;
+
+}
+
+#seafoam-teal {
+
+  background-color: #5F9EA0;
+
+}
+
+#teal {
+
+  background-color: #317873;
+
+}
+
+#brown-teal {
+
+  background-color: #49796B;
+
+}
+
+#lilac {
+
+  background-color: #C8A2C8;
+
+}

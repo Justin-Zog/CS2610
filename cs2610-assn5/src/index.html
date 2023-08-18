@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Weather App</title>
+    <link rel='stylesheet' href='style.css' />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src='script.js' defer></script>
+  </head>
+  <body>
+    <nav class="white stuff-box">
+      <a href="plan.html"> The Plan </a>
+    </nav>
+    <div class="white stuff-box">
+      <h1> Vue.js Weather App </h1>
+    </div>
+    <div id="app">
+      <div class="blue stuff-box">
+        <h3> Your Location </h3>
+        <span v-if="location === undefined && error === undefined">
+          Please wait while your location is being retrieved.
+        </span>
+        <div v-else-if="location === undefined && error" class="red stuff-box">
+          <p>{{error}}</p>
+        </div>
+        <span v-else>
+          You are located in {{location}}
+        </span>
+      </div>
+      <div class="yellow stuff-box">
+        <h3> Current Conditions </h3>
+        <p>Current weather conditions @ {{currentDay}}</p>
+        <span v-if="currentTemp === undefined && error === undefined">
+          Please wait while the current weather is being retrieved.
+        </span>
+        <div v-else-if="currentTemp === undefined && error" class="red stuff-box">
+          <p>{{error}}</p>
+        </div>
+        <ul v-else>
+          <li>Currently: {{currentTemp}}F</li>
+          <li>High: {{maxTemp}}F</li>
+          <li>Low: {{minTemp}}F</li>
+          <li>{{currentDescription}}</li>
+          <li>{{currentHumidity}}% humidity</li>
+          <li>{{currentPressure}} hPa pressure</li>
+        </ul>
+      </div>
+      <div class="cyan stuff-box">
+        <h3> 5 Day 3-hour Forecast </h3>
+        <span class="unlikely">{{vote[2]}} unlikely</span>
+        <span class="neutral">{{vote[0]}} neutral</span>
+        <span class="likely">{{vote[1]}} likely</span>
+        <div v-if="forecasts === undefined && error === undefined">
+          <span>Please wait while the forecasts are being retrieved.</span>
+        </div>
+        <div v-else-if="forecasts === undefined && error" class="red stuff-box">
+          <p>{{error}}</p>
+        </div>
+        <div v-else v-for="(forecast, idx) in forecasts" 
+        class="stuff-box vote-box" 
+        :class="{white: forecast.likeliness === 0, green: forecast.likeliness === 1, red: forecast.likeliness === 2}" 
+        v-on:click="toggle" 
+        v-bind:data-index="idx">
+
+          <p><em>Conditions for {{forecast.dt_txt}}</em></p>
+          <ul>
+            <li>Temperature: {{forecast.main.temp}}F</li>
+            <li>{{forecast.weather[0].description}}</li>
+            <li>{{forecast.main.humidity}}% humidity</li>
+            <li>{{forecast.main.pressure}} hPa</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

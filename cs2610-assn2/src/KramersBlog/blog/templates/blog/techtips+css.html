@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+  <head> 
+    <title> Tech Tips </title>
+    <meta charset='utf-8'>
+    {% load static %}
+    
+    <link rel='stylesheet' href="{% static 'blog/style.css' %}" type='text/css'>
+  </head>
+
+  <body>
+    <div>
+      <span> Hello user: {{ request.META.USER }}. Thanks for visiting this page from {{ request.META.REMOTE_ADDR }} </span>  
+      <ol type="i">
+      
+        <li> <a href='/blog/index.html'> Blog </a> </li>
+        <li> <a href='/blog/archive.html'> Blog Archives </a> </li>
+        <li> <a href='/blog/about.html'> My Fantastic Adventures </a> </li>
+        <li> <a href='/blog/techtips+css.html'> Tech Tips - CSS Edition </a> </li>
+        <li> <a href='/blog/techtips-css.html'> Tech Tips - Kramer's Way </a> </li>
+        <li> <a href='/blog/plan.html'> The Plan </a> </li>
+
+      </ol>
+    </div>
+
+    <div id="grey-seafoam">
+
+    <h2> W3C Validators </h2>
+    <ul>
+
+      <li> <a href="https://validator.w3.org/nu/#file"> W3C's Markup Validation Service </a> </li>
+      <li> <a href="https://jigsaw.w3.org/css-validator/"> W3C's CSS Validator </a> </li>
+
+    </ul>
+
+    </div>
+
+    <div id="seafoam-teal">
+
+      <h2> Some HTML Elements Used on this Blog </h2>
+      
+      <p> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"> <code> &lt;p&gt; </code> </a> </p>
+      <ul>
+
+        <li> name: Paragraph Element </li>
+        <li> purpose: Represents and displays text in a paragraph format </li>
+        <li> display: Whatever text is included between its tags </li>
+        <li> default element display type: <em> block-level </em> </li>
+
+      </ul>
+
+      <p> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"> <code> &lt;div&gt; </code> </a> </p>
+      <ul>
+
+        <li> name: Content Division Element </li>
+        <li> purpose: A container to help with the organization and flow of content on a page. </li>
+        <li> display: It will display any elements contained within its tag. </li>
+        <li> default element display type: <em> block-level </em> </li>
+
+      </ul>
+      
+      <p> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"> <code> &lt;h1-h6&gt; </code> </a> </p>
+      <ul>
+
+        <li> name: Header Element </li>
+        <li> purpose: Creates and displays header text. </li>
+        <li> display: <em> usually </em> larger header text </li>
+        <li> default element display type: <em> block-level </em> </li>
+
+      </ul>
+
+      <p> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"> <code> &lt;ul&gt; </code> </a> </p>
+      <ul>
+  
+        <li> name: Unordered List Element </li>
+        <li> purpose: Creates unordered list (like the one you are reading) </li>
+        <li> display: A nice bulletted list </li>
+        <li> default element display type: <em> block-level </em> </li>
+
+      </ul>
+
+    </div>
+
+    <div id="teal">
+
+      <h2> HTML Entities used in this blog </h2>
+
+      <p> The Less Than Sign </p>
+
+      <ul>
+
+        <li> entity: <code> &lt; </code> </li>
+        <li> use: The &lt; symbol is used when creating tags in html. </li>
+
+      </ul>
+
+      <p> The Greater Than Sign </p>
+
+      <ul>
+
+        <li> entity: <code> &gt; </code> </li>
+        <li> use: The &gt; sybol is used when creating tags in html. </li>
+
+      </ul>      
+
+      <p> Quotation Marks </p>
+
+      <ul>
+
+        <li> entity: <code> &quot; </code> </li>
+        <li> use: <code> &quot; </code> has many uses in an html document. One of the ways this page uses it is to surround a link. </li>
+
+      </ul>
+
+    </div>
+
+    <div id="brown-teal">
+
+      <h2> CSS Selectors Used On This Blog  </h2>
+
+      <p> <code> .rosepink </code> class selector </p>
+      <p> &emsp; This is a class selector that changes text to <code> rosepink </code> This is used on the last paragraph of the &quot;blog&quot; page. </p>
+      <p> &emsp; You can apply a <em> class selector </em> like so: &quot; <code> &lt;p class=&quot;rosepink&quot;&gt; </code> &quot; <br> <br> </p>
+
+      <p> <code> #freespirit </code> id tag </p>
+      <p> &emsp; id tags can be applied to vairious things in html. All the <code> #freespirit </code> tag does on my blog is change text to a yellowish color. </p>
+      <p> &emsp; You can apply an <em> id tag </em> like so: &quot; <code> &lt;ul id=&quot;freespirit&quot;&gt; </code> &quot; <br> <br> </p>
+
+      <p> <code> li:nth-child(odd) </code> css selector </p>
+      <p> &emsp; This nth child selector puts a light blue border around every other <code> li </code> element on my blog. </p>
+      <p> &emsp; You can apply an <em> nth child selector in a <code> CSS stylesheet </code> </em> like so: &quot; <code> li:nth-child(odd) { border: 4px solid #B0E4EA; } </code> &quot; <br> <br> </p> 
+
+      <p> <code> div </code> type selector </p>
+      <p> &emsp; This <code> CSS </code> type selector makes every &quot;div&quot; tag element have a certain margin, border, padding, and background-color specifications. </p>
+      <p> &emsp; You can apply a <em> type selector </em> like so: &quot; <code> div { background-color: #53CBCF; margin: 20px 35px; border: 7px double #0DA3BA; padding: 10px 10px 10px 10px; } </code> </p>
+
+    </div>
+
+    <div id="lilac">
+
+      <h2> Some CSS Properties Used On This Blog </h2>
+
+      <p> <code> margin </code> </p>
+      <p> &emsp; This property determines the margin that an html element will have. </p>
+      <p> &emsp; Possible Values: <code> 0 auto;     20px 35px; </code> <br> <br> </p> 
+
+      <p> <code> color </code> </p>
+      <p> &emsp; This property determines the color that an html element will have. </p>
+      <p> &emsp; Possible Values: <code> black;      white;     green; <br> <br> </code> </p>
+
+      <p> <code> font-family </code> </p>
+      <p> &emsp; This property determines the font family that a text element will have. </p>
+      <p> &emsp; Possible Values: <code> Georgia, serif;     san-serif; </code> </p>
+  
+    </div>
+  </body>
+</html>

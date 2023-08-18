@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Recent Operations </title>
+
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'arithmeticShootout/style.css' %}" type='text/css'>
+  </head>
+  <body>
+    <div class="white stuff-box">
+      {% include 'arithmeticShootout/nav.html' %}
+      <h1> Expressions History - Most Recent Results </h1>
+    </div>
+
+    {% if saved_expressions %}
+    <div class="white stuff-box">
+        {% for expression in saved_expressions %}
+        <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="cyan stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+  </body>
+</html>

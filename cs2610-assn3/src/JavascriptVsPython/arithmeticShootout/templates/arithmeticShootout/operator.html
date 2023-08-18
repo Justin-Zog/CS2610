@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Operators </title>
+
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'arithmeticShootout/style.css' %}" type='text/css'>
+    <script src="{% static 'arithmeticShootout/script.js' %}"></script>
+  </head>
+  <body>
+    <div class="white stuff-box">
+      {% include 'arithmeticShootout/nav.html' %}
+      <h1> Expression History - By Operator </h1>
+    </div>
+    
+    {% if add_expressions %}
+      <div class="green addition stuff-box">
+        <h3> Addition Expressions (+) </h3>
+        {% for expression in add_expressions %}
+          <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="cyan stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if sub_expressions %}
+      <div class="red subtraction stuff-box">
+        <h3> Subtraction Expressions (-) </h3>
+        {% for expression in sub_expressions %}
+          <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="cyan stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if mul_expressions %}
+      <div class="blue multiplication stuff-box">
+        <h3> Multiplication Expressions (*) </h3>
+        {% for expression in mul_expressions %}
+          <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="cyan stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if div_expressions %}
+      <div class="yellow division stuff-box">
+        <h3> Division Expressions (/) </h3>
+        {% for expression in div_expressions %}
+          <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="cyan stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if rem_expressions %}
+      <div class="magenta remainder stuff-box">
+        <h3> Remainder Expressions (%) </h3>
+        {% for expression in rem_expressions %}
+          <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="cyan stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if exp_expressions %}
+      <div class="cyan exponentiation stuff-box">
+        <h3> Exponentiation Expressions (**) </h3>
+        {% for expression in exp_expressions %}
+          <form method="post" action="removeExpression">
+          {% csrf_token %}
+          <div class="green stuff-box">
+            <span> Expression {{ expression.id }}: </span>
+            <span class="expression"> {{ expression.operand1 }} {{ expression.operator.symbol }} {{ expression.operand2 }} = {{ expression.result }} </span>
+            <button type="submit">Delete</button>
+            <input type="hidden" name="id" value=" {{expression.id}}">
+          </div>
+        </form>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </body>
+</html>

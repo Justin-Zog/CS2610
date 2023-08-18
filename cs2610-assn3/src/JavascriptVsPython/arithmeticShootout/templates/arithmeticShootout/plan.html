@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <title> The Plan </title>
+    <meta charset='utf-8'>
+    {% load static %}
+    
+    <link rel='stylesheet' href="{% static 'arithmeticShootout/style.css' %}" type='text/css'>
+  </head>
+
+  <body>
+    <div class="white stuff-box">
+      <h1> Software Development Plan </h1>
+      {% include 'arithmeticShootout/nav.html' %}
+    </div>
+
+    <div class="white stuff-box">
+      <h2> Phase 0: Requirements and Specifications </h2>
+      <h2> Deliver </h2>
+      <ol>
+        <li> Write an app whose client side is written in JavaScript and a Django server side component written in Python. </li>
+        <li> This app will have 6 webpages served as Django templates. Each page must be clearly identified by a title and a heading. Each page is also required to have a common navigation section. </li>
+        <li> I will use Erik's CSS file to style all the pages as this helps with simplicity. </li>
+        <li> The first page should be the index. It serves as a calculator and has 3 main sections. The first of which creates a mathematical expression. The second will show expressions that have been computed, and the third will show a handful of (about 5) saved expressions. Those saved expressions are stored on the database.
+        </li>
+        <li> The next page will be the Recent Expression page. It is essentially the save as section 3 of the calculator page except it shows all saved expressions. </li>
+        <li> The next page is the Undefined Expressions page. It will display any expressions with undefined results such as dividing by 0. It is essentially a specialized version of the second page. </li>
+        <li> The next page is the disagreeing results page. It consists of any saved expression where the javascript math's answer differs from python's math. </li>
+        <li> The next page shows all the expressions divided into sections based on which operator was used for the equation. </li>
+        <li> The last page will be this one. The software development plan page. </li>
+      </ol>
+      <ul>
+        <li> For this app we also have to do some confirmation that the client is not doing something stupid. Which as we all know, happens quite frequently. </li>
+        <li> To do this I will test if an input is empty, if the inputs are actually numbers, and if the operator is included in my operator table. If any if these tests go wonky an error message will be produced and the user won't be able to save their equation. </li>
+        <li> On top of validated the content from the user on the client side, I will also confirm that it is valid on the server side. If something goes wrong on the server side, the user will be redirected to an error page. </li>
+      </ul>
+    </div>
+
+    <div class="white stuff-box">
+      <h2> Phase 1: Design </h2>
+      <h2> Deliver </h2>
+      <ul>
+        <li> Most the functionality of this program lies in the POST requests and validating that input is correct. </li>
+        <li> There will be a function that compares the javascript results with the python results to see if they are the same. This python will also double check that the input is valid on the server side. This is an extra measure of security to stop malware or something bad from happening. </li>
+        <li> There will have to be some type of function that populates the operator table with approved arithmetic operators. A migration script will be used for this. </li>
+        <li> On the server side there will be some behind the scenes magic going on, this magic is basically filtering the saved expression by different means and putting them on the page. </li>
+      </ul>
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 2: Implementation </h2>
+      <h2> Deliver </h2>
+      
+      <span> Most of the stuff was pretty straightforward. I had the most trouble with the a weird error. When I did 0/0 and tried to save it, django gave me an IntegrityError NOT NULL constraint failed: arithmeticShootout_expression.result. I triple checked everything and re-installed my databased at least 10 times. It kept giving me this error even though I was passing in no null or None data... Still never figured out why that was happening, that's why it displays None instead of Undefined... </span> 
+      
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 3: Testing &amp; Debugging </h2>
+      <h2> Deliver </h2>
+
+      <span> I did lots of debugging and testing with all sorts of janky things and tried to hack my own page using the console. Everything seems to be working great except for the hacky way I got around the error mentioned in implementation. </span>
+
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 4: Deployment </h2>
+      <h2> Deliver </h2>
+
+      <p> Everything is pushed to gitLab and confirmed with the official websites. </p>
+
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 5: Maintenance </h2>
+      <h2> Deliver </h2>
+
+      <span> The operators page is written very sloppily and not at all in the best way it could have been written.  If I would have taken more time to plan out that page it would have worked out better.<br>
+             The fact that I couldn't find out the IntegrityError and did a hacky workaround was also sloppy and I hope to fix that in the future. Other than that everything is organized very well and wouldn't be hard to debug in the future. </span>
+      <span> I think most my code is self-documenting, it would take a little longer to find a bug in this program just because of the little details everywhere, but that's just sorta a django thing in general. </span>
+
+      <span> I think that this webpage should keep running for a good while, I know Django gets updates fairly frequently but they are also very good with working with back-compatibility. </span>
+    </div>
+
+  </body>
+</html>

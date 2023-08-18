@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <title> The Plan </title>
+    <meta charset='utf-8'>
+    {% load static %}
+    
+    <link rel='stylesheet' href="{% static 'blog/style.css' %}" type='text/css'>
+  </head>
+
+  <body>
+    <div>
+      <span> Hello user: {{ request.META.USER }}. Thanks for visiting this page from {{ request.META.REMOTE_ADDR }} </span>
+    </div>
+
+    <div>
+      <h1> Software Development Plan </h1>
+    </div>
+
+    <div>
+
+      <ol type="i">
+
+        <li> <a href='/blog/index.html'> Blog </a> </li>
+        <li> <a href='/blog/archive.html'> Blog Archives </a> </li>
+        <li> <a href='/blog/about.html'> My Fantastic Adventures </a> </li>
+        <li> <a href='/blog/techtips+css.html'> Tech Tips - CSS Edition </a> </li>
+        <li> <a href='/blog/techtips-css.html'> Tech Tips - Kramer's Way </a> </li>
+        <li> <a href='/blog/plan.html'> The Plan </a> </li>
+
+      </ol>
+    </div>
+
+    <div>
+      <h2> Phase 0: Requirements and Specifications </h2>
+      <h2> Deliver </h2>
+      <ol>
+        <li> Use a real-world web framework to create a dynamic web site </li>
+        <li> Read Documentation to find solutions to problems that may arise </li>
+        <li> Use HTML forms and use POST requests </li>
+        <li> Use Django to store information on a database and serve information from that database </li>
+      </ol>
+    </div>
+
+    <div>
+      <h2> Phase 1: Design </h2>
+      <h2> Deliver </h2>
+      <p> This project does not require us to use a lot of functions/write our own functions<br>
+          Instead we are using the build in structure of Django to apply our html files.<br>
+          This will include making sure Django's framework is understood and I follow the 'rules' set up by that.<br>
+          The only functions we really have to write happen in the models.py file. Here we take care of requests and serving up a webpage. </p>
+    </div>
+
+    <div>
+
+      <h2> Phase 2: Implementation </h2>
+      <h2> Deliver </h2>
+      
+      <p> I had a little trouble figuring out how to do a post request. Once I read the documentation and used the network tab of the dev tools in the browser I understood what was going on. </p>
+      
+    </div>
+
+    <div>
+
+      <h2> Phase 3: Testing &amp; Debugging </h2>
+      <h2> Deliver </h2>
+
+      <p> I performed various tests which comprised of deleting my database and making sure it repopulates, viewing all links provided on the blog website.
+          Making sure text was truncated when it needed to be, and making sure comments were showing up correctly when added to the database by the user. </p>
+
+    </div>
+
+    <div>
+
+      <h2> Phase 4: Deployment </h2>
+      <h2> Deliver </h2>
+
+      <p> Everything is pushed to gitLab and confirmed with the official websites. </p>
+
+    </div>
+
+    <div>
+
+      <h2> Phase 5: Maintenance </h2>
+      <h2> Deliver </h2>
+
+      <p> I do not feel that any part of my code is really written sloppily. Django kind of forces you to be organized and methodic with the approaches taken to create a webpage.
+          As long as I remember how to navigate Django in the future finding and solving a bug that was reported should be very fast. </p>
+      <p> My documentation is a little lacking on this project. There is just so much going on with Django that it would be hard to write my own documentation for it.
+          If you are reading this you can use this link to look at a Django tutorial and read Django's very own documentation! <a href="https://docs.djangoproject.com/en/4.1/intro/tutorial01/"> Django Tutorial </a></p>
+      <p> I think that this webpage should keep running for a good while, I know Django gets updates fairly frequently but they are also very good with working with back-compatibility. </p>
+    </div>
+
+  </body>
+</html>

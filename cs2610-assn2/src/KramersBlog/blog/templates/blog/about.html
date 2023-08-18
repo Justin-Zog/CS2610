@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+  <head>
+    <title> About Me </title>
+    <meta charset='utf-8'>
+    {% load static %}
+    
+    <link rel='stylesheet' href="{% static 'blog/style.css' %}" type='text/css'>  
+  </head>
+
+  <body>
+    <div>
+      <h1> All About Me </h1>
+      <span> Hello user: {{ request.META.USER }}. Thanks for visiting this page from {{ request.META.REMOTE_ADDR }} </span> 
+      <ol type="i">
+      
+        <li> <a href='/blog/index.html'> Blog </a> </li>
+        <li> <a href='/blog/archive.html'> Blog Archives </a> </li>
+        <li> <a href='/blog/about.html'> My Fantastic Adventures </a> </li>
+        <li> <a href='/blog/techtips+css.html'> Tech Tips - CSS Edition </a> </li>
+        <li> <a href='/blog/techtips-css.html'> Tech Tips - Kramer's Way </a> </li>
+        <li> <a href='/blog/plan.html'> The Plan </a> </li>      
+
+      </ol>
+    </div>
+
+    <div>
+
+      <img src="{% static 'blog/photos/CosmoPortrait.png' %}" alt="Cosmo Kramer Portrait">
+
+      <p> 
+        If only my friends could see me now... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+    </div>
+
+    <div>
+
+      <img src="{% static 'blog/photos/TheWigMaster.png' %}" alt="The Biggest Pimp on the Block">
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+    </div>
+
+    <div>
+
+      <img src="{% static 'blog/photos/HolyCow.png' %}" alt="A Look of Surprised Anguish">
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+    </div>
+
+    <div>
+
+      <img src="{% static 'blog/photos/Jiu-JutsuMaster.png' %}" alt="Kramer Winning a Jiu-Jutsu Spar">
+   
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title> {{ blog.title }} </title>
+    {% load static %}
+
+    <link rel='stylesheet' href="{% static 'blog/style.css' %}" type='text/css'>
+  </head>
+  <body>
+    <div>
+      <h3> <a href="/blog/index.html"> Back to the Blog! </a> </h3>
+      
+    </div>
+
+    <div>
+      <h2> {{ blog.title }} </h2>
+      <h5> {{ blog.author }}: {{ blog.posted }} </h5>
+      <p> {{ blog.content }} </p>
+      <p> <b> Comments: {{ blog.comments_set.count }} </b> </p>
+
+      <form method="post">
+      {% csrf_token %}
+      <fieldset>
+
+        <legend><h1> Comment </h1></legend>
+        <label> Username: </label>
+        <input type="text" name="username" id="username" />
+        <label> Email: </label>
+        <input type="email" name="email" id="email" />
+        <label> Comment: </label>
+        <input type="text" name="comment" id="comment" />
+
+      </fieldset>
+      <input type="submit" />
+      </form>
+
+      <h3> Other's Comments </h3>
+      <ul>    
+      {% for comment in blog.comments_set.all %}
+  
+        <li> <h5> {{ comment.commenter }}: Posted: {{ comment.posted }} </h5>
+             <p> {{ comment.content }}  </p>
+        </li>
+
+      {% endfor %}      
+      </ul>
+    </div>
+
+  </body>
+</html>

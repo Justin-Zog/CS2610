@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+  <head>
+    <title> Homepage </title>
+    <meta charset='utf-8'>
+    {% load static %}
+    
+    <link rel='stylesheet' href="{% static 'blog/style.css' %}" type='text/css'>
+  </head>
+
+  <body>
+    <h1> The Blog </h1>
+    <div>
+      <span> Hello user: {{ request.META.USER }}. Thanks for visiting this page from {{ request.META.REMOTE_ADDR }} </span>
+      <ol type="i">
+      
+        <li> <a href='/blog/index.html'> Blog </a> </li>
+        <li> <a href='/blog/archive.html'> Blog Archives </a> </li>
+        <li> <a href='/blog/about.html'> My Fantastic Adventures </a> </li>
+        <li> <a href='/blog/techtips+css.html'> Tech Tips - CSS Edition </a> </li>
+        <li> <a href='/blog/techtips-css.html'> Tech Tips - Kramer's Way </a> </li>
+        <li> <a href='/blog/plan.html'> The Plan </a> </li>
+
+      </ol>
+    </div>
+
+    {% if latest_blog_posts %}
+
+      {% for blog in latest_blog_posts %}
+      <div>
+        <h2> {{ blog.title }} </h2>
+        <h5> {{ blog.author }}: {{ blog.posted }} </h5>
+        <p> {{ blog.content|truncatewords:100 }} </p>
+        <p> <b> Comments: {{ blog.comments_set.count }} </b> </p>
+        <a href="{% url 'blog:detail' blog.id %}"> View Full Post </a>
+      </div>
+   
+      {% endfor %}
+    {% else %}
+       <p> There are currently no blog posts </p>
+    {% endif %}
+
+  </body>
+</html>
+

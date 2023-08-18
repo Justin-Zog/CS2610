@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'gold/style.css' %}" type='text/css'>
+    <script src="{% static 'gold/script.js' %}" defer></script>
+</head>
+<body>
+   <nav class="white stuff-box"> <a href="plan.html">To The Plan</a> </nav>
+   <div class="yellow stuff-box">
+     <h2> What's your weight's worth in Gold? </h2>
+     <p>Input Your Weight And Press The <em><b>Calculate</b></em> Button To See What You're Worth! </p>
+     <p> For Your Privacy, Results Are Removed When Clicked </p>
+     <div class="spacing-box">
+         
+       <input type="number" id="weightfield">
+       <select id="unit">
+       {% if validUnits %}
+         {% for unit in validUnits %}
+       
+         <option value={{ unit }}> {{ unit }} </option>
+   
+         {% endfor %}
+       {% endif %}
+       </select>
+       <button id="calculate-button" type="button">Calculate</button>
+     </div>
+     
+     <div>
+       <p id="api-paragraph"> Fetching The Latest Price Of Gold From The Market...</p>
+     </div>
+  </div>
+  <div id="results"></div>
+</body>
+</html>

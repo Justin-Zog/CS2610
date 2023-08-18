@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <title> The Plan </title>
+    <meta charset='utf-8'>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'gold/style.css' %}" type='text/css'>
+  </head>
+
+  <body>
+    <nav class="white stuff-box"> <a href="index.html">To Main Page</a> </nav>
+    <div class="white stuff-box">
+      <h1> Software Development Plan </h1>
+    </div>
+
+    <div class="white stuff-box">
+      <h2> Phase 0: Requirements and Specifications </h2>
+      <h2> Deliver </h2>
+      <ol>
+        <li>This project will include 2 apps. One named `unitconv` which will take care of the API related details of the website. The other named `gold`. `gold` will serve as a simple HTML web page. </li>
+        <li>Gold will have a nav bar at the top that leads to plan.html (this file) and this plan will also contain a nav bar so you can jump between pages. </li>
+        <li>The other view in `gold` that isn't plan will allow the user to find out how much their weight is worth in gold according to the latest market prices provided by the API. </li>
+        <li>An important thing to note is that the entire page will not be loaded at the start. The API get request is called and then when it is fetched, the result will display on the page, without reloading it. </li>
+        <li>This is done through an asynchronous GET request using fetch() </li>
+        <li>The unitconv app will give us data from the API in the form of JSON. Which we then parse and use to our advatage. </li>
+        <li>We must be able to convert between the US ton, Gram, Troy Oz (api gives us this one), kilogram, imperial pound, and ounce. </li>
+      </ol>
+    </div>
+
+    <div class="white stuff-box">
+      <h2> Phase 1: Design </h2>
+      <h2> Deliver </h2>
+      <ul>
+        <li>This assignment requires 2 apis. One gets us the Nasdaq data for the weight of Gold in dollars per Troy Ounces. The other is a Django Model that stores different conversion rates. </li>
+        <li>The model will require unit conversion between Tons, grams, troy ounces, kilograms, imperial pound, and ounce. It can convert between any and all units of measurement (both ways) </li>
+        <li>It will do this by making a fetch request to the unitconv django app. </li>
+        <li>This app will consist of a single page (kinda two pages since you can navigate to the unitconv page and see the json results). </li>
+        <li>This single page will allow the user to input their weight and then a new div will appear without refreshing the page
+            This new div will contain a timestamp as well as how much XXX grams/tons/whatever of gold is worth. </li>
+        <li> Other than that there isn't much else to this app. Just checking the users input (never trust those dudes) and making sure they know if the api fetch() failed. </li>
+        <li> For the API that I'll be writing in Django. I used this link for conversion factors. <a href="https://www.wolframalpha.com/examples/science-and-technology/units-and-measures">Wolfram Alpha</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 2: Implementation </h2>
+      <h2> Deliver </h2>
+      <span> Nothing too crazy or out of the ordinary happened while programming this app. </span>
+       
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 3: Testing &amp; Debugging </h2>
+      <h2> Deliver </h2>
+      <span> I managed to catch a bug that would return NaN results when a number was input in scientific notation. To fix this I just made a div pop up that tells the user they must have not put a number in if they try to enter something in scientific notation </span>
+
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 4: Deployment </h2>
+      <h2> Deliver </h2>
+
+      <p> Everything is pushed to gitLab and confirmed with the official websites. </p>
+
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 5: Maintenance </h2>
+      <h2> Deliver </h2>
+      <p> This app would not be very hard to maintain or debug were an error to pop up. Adding an additional unit of measure would be easy as I would just need to update my table. </p>
+
+      <p> It's worth noting that I don't think anything in the app is written very sloppily either. Maybe the part of my code that checks for weird user input looks garbly but that's how error checking is. </p>
+     
+      <p> I think most my code is self-documenting, it would take a little longer to find a bug in this program just because of the little details everywhere, but that's just sorta a django thing in general. </p>
+
+      <p> I think that this webpage should keep running for a good while, I know Django gets updates fairly frequently but they are also very good with working with back-compatibility. </p>
+    </div>
+
+  </body>
+</html>

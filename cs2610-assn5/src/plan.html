@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <title> The Plan </title>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href="style.css" type='text/css'>
+  </head>
+
+  <body>
+    <nav class="white stuff-box"> <a href="index.html">To Main Page</a> </nav>
+    <div class="white stuff-box">
+      <h1> Software Development Plan </h1>
+      <h3> Justin Herzog April 2023 </h3>
+    </div>
+
+    <div class="white stuff-box">
+      <h2> Phase 0: Requirements and Specifications </h2>
+      <h2> Deliver </h2>
+      <ol>
+        <li> Unlike previous projects, this one will not use any Django frameworks! </li>
+        <li> We will just be using 4 files: plan.html, index.html, script,js, style.css. Because we are using Vue.js this is possible. </li>
+        <li> This project must use Vue.js front-end framework to dynamically build a webpage that users can interact with. </li>
+        <li> It will consist of a single page that will use 2 different API's to get data and display them on the screen. The user will then be able to interact with that content. </li>
+        <li> One of the API's, Abstract API, will get an geolocation (latitude and longitude) based on the user's IP address and display it on the screen. Once we have that data, we can do the 2nd API call. </li>
+        <li> The next API, OpenWeatherMap, provides weather information. This project will use the previously obtained latitude and longitude to fetch the current weather data and display it to the screen. </li>
+        <li> The rest of this project has to do with manipulating the DOM using Vue.js. This program will take advantage of Vue.js to dynamically change the webpage without making any fetch requests or reloading the page. </li>
+        <li> IMPORTANT: Despite the user being able to vote by clicking divs, the app does not need to be persistent. </li>
+      </ol>
+    </div>
+
+    <div class="white stuff-box">
+      <h2> Phase 1: Design </h2>
+      <h2> Deliver </h2>
+      <ul>
+        <li> This is a fairly simple app. I will describe the divs needed below.  </li>
+        <li> Header: This div simply contains the name of the app </li>
+        <li> Your Location: This div uses Abstract API to get the users location using their IP addres, then displays that information.
+        <br> Before the information is obtained, a loading prompt lives inside the div. </li>
+        <li> Current Conditions: This div displays the current weather conditions as obtained by OpenWeatherMap's API.
+        <br> Before this information is fetched a loading prompt lives in the div. </li>
+        <li> 5 day 3 hour forecast: This div displays the information for the weather prediction for the next 5 days in 3 hour increments.
+        <br> Each one of the predictions is stored in it's own div within this one. Before the data is fetched a loading message is present.
+        <br> Each div is clickable and will change between 3 different background colors. Green (likely), Red (unlikely), Gray (neutral).
+        <br> This makes our app user interactable. Although we allow the user to change these divs we do not persist the data to a database. </li>
+      </ul>
+      <h4> Methods </h4>
+      <p> Most methods required just use classic javascript to fetch data from an API using promises and .then() methods. </p>
+      <p> The other methods needed come from Vue.js. We can use Vue within our html by adding Vue 'properties' to the element.
+          An example of this would be the Vue 'if' statement. v-if="awesome". We can find all the methods we need in Vue's documentation. </p>
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 2: Implementation </h2>
+      <h2> Deliver </h2>
+      <span> Nothing wild or out of the ordinary happened while programming this app. </span>
+       
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 3: Testing &amp; Debugging </h2>
+      <h2> Deliver </h2>
+      <p> 
+        While testing and debugging I found that one of the API's only allows one API call a second so if you spam refreshing the page the API breaks.<br>
+        The API convieniently gives an 'undefined' datatype instead of actual json data. I let the user know they are refreshing the page too quickly.
+      </p>
+      <p>
+        I also tested to see if my app would dynamically respond to the APIs being down and it does.<br>
+        It also lets the user know that the app is retrieving data and to be patient if the connection is throttled.
+      </p>
+
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 4: Deployment </h2>
+      <h2> Deliver </h2>
+
+      <p> Everything is pushed to gitLab and confirmed with the official websites. </p>
+
+    </div>
+
+    <div class="white stuff-box">
+
+      <h2> Phase 5: Maintenance </h2>
+      <h2> Deliver </h2>
+      <p> This app would not be very hard to maintain or debug were an error to pop up. </p>
+
+      <p> It's worth noting that I don't think anything in the app is written very sloppily either. It is very straightforward and simple. </p>
+     
+      <p> I think most my code is self-documenting, it wouldn't take long to find the source of an error. </p>
+
+      <p> I think that this webpage should keep running for a good while, obviously if vue or the API's change the app will have to change. </p>
+    </div>
+
+  </body>
+</html>
